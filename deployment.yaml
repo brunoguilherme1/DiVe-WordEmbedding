@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iris-lr-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iris-lr-api
+  template:
+    metadata:
+      labels:
+        app: iris-lr-api
+    spec:
+      containers:
+      - name: iris-lr-api
+        image: testkuber.azurecr.io/image-workflow-1741454260423
+        ports:
+        - containerPort: 8000
