@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iris-mlgke-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iris-mlgke-api
+  template:
+    metadata:
+      labels:
+        app: iris-mlgke-api
+    spec:
+      containers:
+      - name: iris-mlgke-api
+        image: us-central1-docker.pkg.dev/iris-mlgke/iris-registry/iris-api:v1
+        ports:
+        - containerPort: 8000
+
