@@ -1,4 +1,4 @@
-- name: Deploy to GKE
+- name: Deploy to GKE 
   run: |
     kubectl get deployment iris-mlgke-api || kubectl apply -f k8s/deployment.yaml
     kubectl set image deployment/iris-mlgke-api iris-mlgke-api=us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/iris-registry/iris-api:${{ github.sha }}
